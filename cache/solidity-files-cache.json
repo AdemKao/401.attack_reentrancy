@@ -1,0 +1,153 @@
+{
+  "_format": "hh-sol-cache-2",
+  "files": {
+    "C:\\Users\\p10345811\\AdemKao\\22.Program\\07.SideProject\\Blockchain\\99.solidity\\401.attack_reentrancy\\contracts\\Attacker.sol": {
+      "lastModificationDate": 1653814955918,
+      "contentHash": "3da2cf97488cb0b78427e8a65c5b9a95",
+      "sourceName": "contracts/Attacker.sol",
+      "solcConfig": {
+        "version": "0.8.7",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./Utils.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "Attacker",
+        "IBank"
+      ]
+    },
+    "C:\\Users\\p10345811\\AdemKao\\22.Program\\07.SideProject\\Blockchain\\99.solidity\\401.attack_reentrancy\\contracts\\Utils.sol": {
+      "lastModificationDate": 1653799882133,
+      "contentHash": "010d558d0f15a7b7c8976b24de717d43",
+      "sourceName": "contracts/Utils.sol",
+      "solcConfig": {
+        "version": "0.8.7",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "Address",
+        "Context",
+        "Ownable",
+        "Utils"
+      ]
+    },
+    "C:\\Users\\p10345811\\AdemKao\\22.Program\\07.SideProject\\Blockchain\\99.solidity\\401.attack_reentrancy\\contracts\\Bank.sol": {
+      "lastModificationDate": 1653811689980,
+      "contentHash": "29fc0a784df050dc6840c89fe3530843",
+      "sourceName": "contracts/Bank.sol",
+      "solcConfig": {
+        "version": "0.8.7",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./Utils.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "Bank"
+      ]
+    },
+    "C:\\Users\\p10345811\\AdemKao\\22.Program\\07.SideProject\\Blockchain\\99.solidity\\401.attack_reentrancy\\contracts\\Migrations.sol": {
+      "lastModificationDate": 1637393775358,
+      "contentHash": "50b3b1dc92806dc8f604fc8c5c65518f",
+      "sourceName": "contracts/Migrations.sol",
+      "solcConfig": {
+        "version": "0.8.7",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.4.22 <0.9.0"
+      ],
+      "artifacts": [
+        "Migrations"
+      ]
+    }
+  }
+}
